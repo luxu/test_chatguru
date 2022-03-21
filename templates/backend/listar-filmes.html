@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center">Listar Filmes</h1>
+<div class="jumbotron">
+    <a class="btn btn-primary" href="{% url 'adicionar_filme' %}">Adicionar Filme</a>
+    <div class="table">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Nome</td>
+                    <td>Data de lançamento</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for filme in filmes %}
+                <tr>
+                    <td>{{ filme.id }}</td>
+                    <td>{{ filme.nome }}</td>
+                    <td>{{ filme.data_lancamento }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

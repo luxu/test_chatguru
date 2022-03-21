@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <a href="{% url 'listar_planetas' %}">Voltar a Lista de Planetas</a>
+    <div class="jumbotron">
+        <h1 class="text-center">Detalhes do planeta: {{ planeta.nome }}</h1>
+        <ul>
+            <li>{{ planeta.clima }}</li>
+            <li>{{ planeta.diametro }}</li>
+            <li>{{ planeta.populacao }}</li>
+            <li>FILMES</li>
+            <ul>
+                {% for filme in filmes %}
+                <li>{{ filme }}</li>
+                {% endfor %}
+            </ul>
+        </ul>
+    </div>
+{% endblock content %}

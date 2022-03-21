@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center">Listar Planetas</h1>
+<div class="jumbotron">
+    <a class="btn btn-primary" href="{% url 'adicionar_planeta' %}">Adicionar Planetas</a>
+    <div class="table">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Nome</td>
+                    <td>Clima</td>
+                    <td>Diâmetro</td>
+                    <td>População</td>
+                    <td>Opções</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for planeta in planetas %}
+                <tr>
+                    <td>{{ planeta.id }}</td>
+                    <td>{{ planeta.nome }}</td>
+                    <td>{{ planeta.clima }}</td>
+                    <td>{{ planeta.diametro }}</td>
+                    <td>{{ planeta.populacao }}</td>
+                    <td>
+                        <a class="btn btn-success" href="{% url 'details_planeta' planeta.id %}">Detalhes</a>
+                        <a class="btn btn-success" href="{ url 'planeta_update' %}}">Editar</a>
+                        <a class="btn btn-danger" href="{ url 'planeta_delete' %}}">Apagar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

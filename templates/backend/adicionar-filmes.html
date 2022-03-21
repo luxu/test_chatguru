@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <a href="{% url 'listar_filmes' %}">Voltar para lista de Filmes</a>
+    <h1 class="text-center">Adicionar Filme</h1>
+    <div class="jumbotron">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-primary" type="submit">Confirmar</button>
+        </form>
+    </div>
+{% endblock content %}
